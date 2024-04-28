@@ -1,3 +1,5 @@
+Example of syntax:
+
 CREATE TABLE tableName(  
 AttributeName1 type,  
 AttributeName2 type, …  
@@ -7,3 +9,15 @@ PRIMARY KEY(attributeName1),
 FOREIGN KEY(attributeName5)  
 REFERENCES tableName(matching-attributeName-in-tableName)  
 );
+
+Example:
+
+CREATE TABLE Venues
+ (venueID VARCHAR(6) NOT NULL,
+ VenueName VARCHAR2(50),
+ venueAddress VARCHAR2(70),
+ venueCapacity NUMBER(4) NOT NULL,
+ costPerDay NUMBER (7,2),
+ venueManager VARCHAR2(50),
+ managerPhoneNo VARCHAR2(15),
+PRIMARY KEY (venueID));
