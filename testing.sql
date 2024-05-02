@@ -1,3 +1,4 @@
+--30/4/24
 --1
 select V.venueName, E.eventName
 from Events E, EventVenues EV, Venues V
@@ -37,3 +38,12 @@ where eventVenues.bookingDate = '01-JUN-2018';
 select to_char(bookingDate, 'MON-YYYY')
 from eventVenues
 where eventVenues.bookingDate = 'JUN-2018';
+--2/5/24
+SELECT * from tab;
+SELECT * from CLIENTS;
+
+SELECT COUNT(*) from CLIENTS
+where POSTCODE='1001';
+
+SELECT COUNT(*) from CLIENTS
+FROM EVENTS;
