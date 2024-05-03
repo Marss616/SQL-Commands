@@ -120,9 +120,36 @@ CREATE TABLE DEPARTMENT (
     Mail_Number INT
 );
 
---Add data to DEPARTMENT Table
+-- 8
 
+--Add data to EMPLOYEE Table
+INSERT INTO EMPLOYEE (Employee_No, First_Name, Last_Name, Dept_Number, Salary) VALUES ('E1', 'Mandy', 'Smith', 'D1', 50000);
+INSERT INTO EMPLOYEE (Employee_No, First_Name, Last_Name, Dept_Number, Salary) VALUES ('E2', 'Daniel', 'Hodges', 'D2', 45000);
+INSERT INTO EMPLOYEE (Employee_No, First_Name, Last_Name, Dept_Number, Salary) VALUES ('E3', 'Shaskia', 'Ramanthan', 'D2', 58000);
+INSERT INTO EMPLOYEE (Employee_No, First_Name, Last_Name, Dept_Number, Salary) VALUES ('E4', 'Graham', 'Burke', 'D1', 64000);
+INSERT INTO EMPLOYEE (Employee_No, First_Name, Last_Name, Dept_Number, Salary) VALUES ('E5', 'Annie', 'Nguyen', 'D1', 60000);
+--Add data to DEPARTMENT Table
 INSERT INTO DEPARTMENT (Dept_Number, Dept_Name, Location, Mail_Number) VALUES ('D1', 'Computer Science', 'Bundoora', 39);
 INSERT INTO DEPARTMENT (Dept_Number, Dept_Name, Location, Mail_Number) VALUES ('D2', 'Information Science', 'Bendigo', 30);
 INSERT INTO DEPARTMENT (Dept_Number, Dept_Name, Location, Mail_Number) VALUES ('D3', 'Physics', 'Bundoora', 37);
 INSERT INTO DEPARTMENT (Dept_Number, Dept_Name, Location, Mail_Number) VALUES ('D4', 'Chemistry', 'Bendigo', 35);
+
+-- Test of obj
+
+SELECT Dept_Number
+FROM DEPARTMENT
+WHERE location = 'Bundoora';
+
+-- working
+
+-- 9 Nested Query Example
+
+SELECT First_Name, Last_Name
+FROM EMPLOYEE
+WHERE Dept_Number = (SELECT Dept_Number FROM DEPARTMENT WHERE Mail_Number = 39);
+
+-- 10 inner Query Example
+
+SELECT First_Name, Last_Name
+FROM EMPLOYEE
+WHERE Dept_Number IN (SELECT Dept_Number FROM DEPARTMENT WHERE location = 'Bundoora');
