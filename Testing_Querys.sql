@@ -153,3 +153,27 @@ WHERE Dept_Number = (SELECT Dept_Number FROM DEPARTMENT WHERE Mail_Number = 39);
 SELECT First_Name, Last_Name
 FROM EMPLOYEE
 WHERE Dept_Number IN (SELECT Dept_Number FROM DEPARTMENT WHERE location = 'Bundoora');
+
+--11 examples of subquery with argrate function
+
+SELECT MAX(Salary) FROM EMPLOYEE;
+
+SELECT First_Name, Last_Name
+FROM EMPLOYEE
+WHERE Salary = (SELECT MAX(Salary) FROM EMPLOYEE);
+
+SELECT First_Name, Last_Name, Salary - (SELECT AVG(Salary) FROM EMPLOYEE) AS SAL_DIFF
+FROM EMPLOYEE
+WHERE Salary > (SELECT AVG(Salary) FROM EMPLOYEE);
+
+SELECT First_Name, Last_Name
+FROM EMPLOYEE E
+WHERE EXISTS (SELECT * FROM DEPARTMENT D WHERE D.Dept_Number = E.Dept_Number AND D.Location = 'Bendigo');
+
+-- 12 Display the department number and number of employees, only for the department that has the maximum number of employees. 
+SELECT Dept_Number, COUNT(*)
+FROM EMPLOYEE
+GROUP BY Dept_Number
+HAVING COUNT(*) =   (SELECT MAX(COUNT(*))
+                    FROM EMPLOYEE
+                    GROUP BY Dept_Number);
