@@ -68,16 +68,11 @@ INSERT INTO WORKS_ON (EMPLOYEE_NO, PROJECT_NUMBER) VALUES ('E5', 5);
 SELECT *
 FROM WORKS_ON;
 --to make a three table join
-SELECT E.Frist_Name, E.Last_Name, P.Project_Name
-FROM EMPLOYEE E, WORKS_ON W, PROJECT P
-WHERE E.employeeNo = W.employeeNo AND W.., = P.projNo; 
--- need to fix...
-SELECT E.First_Name, E.Last_Name, P.Project_Name
-FROM EMPLOYEE E
-JOIN WORKS_ON W ON E.Employee_No = W.Employee_No
-JOIN PROJECT P ON W.Project_Number = P.Project_Number;
-
-
+SELECT H.staffID, H.flightID, COUNT(T.ticketNum) AS numTickets
+FROM HOSTING H
+JOIN FLIGHT F ON H.flightID = F.flightID
+JOIN TICKET T ON F.flightID = T.flightID
+GROUP BY H.staffID, H.flightID;
 
 
 

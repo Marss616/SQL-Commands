@@ -1,0 +1,18 @@
+MODEL(modelID, economySeats, buisnessSeats, firstClassSeats, 
+cargoCapacity, fuelCapacity, length, wingspan) 
+LOCATION(airportCode, country, address, phone) 
+TICKET(ticketNum, luggageLimit, seatNum, classCode, 
+medicalCondition, mealChoice, customerID, flightID) 
+ROUTE(routeID, description, arriveAirportCode, departAirportCode) 
+AIRCRAFT(aircraftID, modelID) 
+STAFF(staffID, name, address, email, phone, passportNum) 
+PILOT (staffID, prvHrsPilotExp) 
+FLIGHTATTENDANT (staffID) 
+CUSTOMER(customerID, name, address, country, email, phone, 
+birthdate, passportNum) 
+FLIGHT(flightID, estDepartureDateTime, actDepartDateTime, 
+actArriveDateTime, avgSpeed, avgHeight, estDuration, estFuel, 
+captainStaffID, firstOfficerStaffID, routeID, aircraftID) 
+ADDITIONAL_PILOT(staffID, flightID, activityCode, activityDesc) 
+HOSTING(staffID, flightID) 
+PILOT_QUALIFICATION(qualification, staffID)
