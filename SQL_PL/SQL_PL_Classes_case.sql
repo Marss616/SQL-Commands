@@ -22,17 +22,18 @@ BEGIN
   -- Calculate the current percentage.
   v_PercentFull := (v_CURRENTSTUDENTS / v_MAXSTUDENTS) * 100;
   
-IF v_PercentFull = 100 THEN
+  CASE
+  WHEN v_PercentFull = 100 THEN
     RETURN 'Full';
-  ELSIF v_PercentFull > 80 THEN
+  WHEN v_PercentFull > 80 THEN
     RETURN 'Some Room';
-  ELSIF v_PercentFull > 60 THEN
+  WHEN v_PercentFull > 60 THEN
     RETURN 'More Room';
-  ELSIF v_PercentFull > 0 THEN
+  WHEN v_PercentFull > 0 THEN
     RETURN 'Lots of Room';
   ELSE
     RETURN 'Empty';
-  END IF;
+  END CASE;
 END ClassInfo;
 /
 
